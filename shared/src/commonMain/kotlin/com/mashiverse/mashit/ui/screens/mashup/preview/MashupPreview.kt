@@ -1,6 +1,7 @@
 package com.mashiverse.mashit.ui.screens.mashup.preview
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -27,6 +28,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.SheetState
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -39,6 +41,7 @@ import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.mashiverse.mashit.data.models.mashup.MashupDetails
 import com.mashiverse.mashit.data.models.traits.OptionalTrait
 import com.mashiverse.mashit.data.states.image.ImageIntent
@@ -94,7 +97,8 @@ fun MashupPreview(
 
         // The sheet is centered in a window as wide as the whole screen.
         // Move its right edge to the right edge of the content area.
-        val offsetX = if (isHalfWidth) (windowWidth - sheetWidth) / 2 - endInset else 0.dp - endInset / 2
+        val offsetX =
+            if (isHalfWidth) (windowWidth - sheetWidth) / 2 - endInset else 0.dp - endInset / 2
 
         ModalBottomSheet(
             modifier = Modifier
@@ -122,27 +126,36 @@ fun MashupPreview(
                     .windowInsetsPadding(verticalInsets),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                Row(modifier = Modifier.fillMaxWidth()) {
-                    Spacer(modifier = Modifier.weight(1f))
+                Box {
+                    Text(
+                        modifier = Modifier.align(Alignment.Center),
+                        text = "Preview",
+                        color = ContentAccentColor,
+                        fontSize = 14.sp
+                    )
 
-                    IconButton(
-                        modifier = Modifier.size(32.dp),
-                        onClick = {
-                            scope.launch {
-                                sheetState.hide()
-                            }.invokeOnCompletion {
-                                if (!sheetState.isVisible) {
-                                    closeBottomSheet()
+                    Row(modifier = Modifier.fillMaxWidth()) {
+                        Spacer(modifier = Modifier.weight(1f))
+
+                        IconButton(
+                            modifier = Modifier.size(24.dp),
+                            onClick = {
+                                scope.launch {
+                                    sheetState.hide()
+                                }.invokeOnCompletion {
+                                    if (!sheetState.isVisible) {
+                                        closeBottomSheet()
+                                    }
                                 }
-                            }
-                        },
-                    ) {
-                        Icon(
-                            modifier = Modifier.size(32.dp),
-                            imageVector = Icons.Default.Clear,
-                            contentDescription = "Close",
-                            tint = ContentAccentColor,
-                        )
+                            },
+                        ) {
+                            Icon(
+                                modifier = Modifier.size(24.dp),
+                                imageVector = Icons.Default.Clear,
+                                contentDescription = "Close",
+                                tint = ContentAccentColor,
+                            )
+                        }
                     }
                 }
 

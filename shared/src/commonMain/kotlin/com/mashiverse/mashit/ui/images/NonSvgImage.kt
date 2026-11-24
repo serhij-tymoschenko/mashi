@@ -17,6 +17,7 @@ import coil3.compose.SubcomposeAsyncImage
 import coil3.compose.SubcomposeAsyncImageContent
 import coil3.request.ImageRequest
 import coil3.request.crossfade
+import com.mashiverse.mashit.ui.theme.Primary
 
 @Composable
 fun NonSvgImage(
@@ -53,7 +54,7 @@ fun NonSvgImage(
                     modifier = modifier.fillMaxSize(),
                     contentAlignment = Alignment.Center
                 ) {
-                    LoadingIndicator()
+                    LoadingIndicator(color = Primary)
                 }
             }
 

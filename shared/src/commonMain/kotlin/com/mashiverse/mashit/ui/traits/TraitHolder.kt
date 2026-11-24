@@ -1,5 +1,6 @@
 package com.mashiverse.mashit.ui.traits
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -12,6 +13,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mashiverse.mashit.data.models.traits.TraitDetails
@@ -20,6 +22,7 @@ import com.mashiverse.mashit.ui.images.DefaultImage
 import com.mashiverse.mashit.ui.theme.ContentAccentColor
 import com.mashiverse.mashit.ui.theme.ContentColor
 import com.mashiverse.mashit.ui.theme.Primary
+import com.mashiverse.mashit.ui.theme.Surface
 import com.mashiverse.mashit.ui.theme.TraitShape
 
 @Composable
@@ -38,11 +41,13 @@ fun TraitHolder(
             modifier = Modifier
                 .fillMaxWidth()
                 .aspectRatio(3f / 4f)
+                .clip(TraitShape)
                 .border(
                     width = 1.dp,
                     shape = TraitShape,
                     color = if (isSelected) Primary else ContentColor
                 )
+                .background(Surface)
                 .padding(4.dp),
         ) {
             DefaultImage(

@@ -53,6 +53,7 @@ import com.mashiverse.mashit.ui.screens.mashup.preview.MashupPreview
 import com.mashiverse.mashit.ui.screens.mashup.sorting.Sorting
 import com.mashiverse.mashit.ui.theme.MediumPadding
 import com.mashiverse.mashit.ui.theme.Padding
+import com.mashiverse.mashit.ui.theme.Primary
 import com.mashiverse.mashit.ui.theme.SmallPadding
 import com.mashiverse.mashit.ui.theme.XLHolderHeight
 import com.mashiverse.mashit.ui.theme.XLHolderWidth
@@ -198,7 +199,8 @@ fun Mashup(searchQuery: String, isApprovalTeam: Boolean = false) {
                 SyncIndicator(
                     modifier = Modifier
                         .padding(start = Padding)
-                        .size(40.dp)
+                        .padding(start = 8.dp, top = 8.dp)
+                        .size(32.dp)
                         .align(Alignment.TopStart)
                 )
             }
@@ -351,7 +353,12 @@ fun Mashup(searchQuery: String, isApprovalTeam: Boolean = false) {
                     }
                 }
             } else {
-                LoadingIndicator()
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                    contentAlignment = Alignment.Center
+                ) {
+                    LoadingIndicator(color = Primary)
+                }
             }
 
             if (mashupUiState.isColorChange) {
@@ -409,7 +416,7 @@ fun Mashup(searchQuery: String, isApprovalTeam: Boolean = false) {
                 .background(Color.Black.copy(alpha = 0.3F)),
             contentAlignment = Alignment.Center
         ) {
-            LoadingIndicator()
+            LoadingIndicator(color = Primary)
         }
     }
 }

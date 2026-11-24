@@ -1,5 +1,6 @@
 package com.mashiverse.mashit.ui.screens.mashup.composite
 
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
@@ -10,11 +11,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import com.mashiverse.mashit.data.models.colors.SelectedColors
 import com.mashiverse.mashit.data.models.traits.TraitDetails
 import com.mashiverse.mashit.data.models.traits.TraitType
 import com.mashiverse.mashit.data.states.image.ImageIntent
 import com.mashiverse.mashit.ui.images.DefaultImage
+import com.mashiverse.mashit.ui.theme.ContentColor
+import com.mashiverse.mashit.ui.theme.Primary
 import com.mashiverse.mashit.ui.theme.TraitShape
 
 @Composable
@@ -27,11 +31,16 @@ fun MashupComposite(
 ) {
     Box(
         modifier = modifier
-            .clip(TraitShape),
+            .clip(TraitShape)
+            .border(
+                width = 0.5.dp,
+                shape = TraitShape,
+                color = Primary
+            ),
         contentAlignment = Alignment.Center
     ) {
         if (assets.none { it.url != null } || assets.isEmpty()) {
-            LoadingIndicator()
+            LoadingIndicator(color = Primary)
         } else {
             assets.sortedBy { it.type }.forEach { trait ->
                 val traitType = trait.type

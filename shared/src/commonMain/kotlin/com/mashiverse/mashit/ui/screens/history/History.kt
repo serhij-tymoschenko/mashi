@@ -26,6 +26,7 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import com.mashiverse.mashit.data.models.image.ImageType
 import com.mashiverse.mashit.data.remote.dtos.HistoryItemResponse
 import com.mashiverse.mashit.ui.availability.NotFound
+import com.mashiverse.mashit.ui.theme.Primary
 import org.koin.compose.viewmodel.koinViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -153,7 +154,7 @@ fun History() {
                 .background(Color.Black.copy(alpha = 0.3F)),
             contentAlignment = Alignment.Center
         ) {
-            LoadingIndicator()
+            LoadingIndicator(color = Primary)
         }
     }
 }

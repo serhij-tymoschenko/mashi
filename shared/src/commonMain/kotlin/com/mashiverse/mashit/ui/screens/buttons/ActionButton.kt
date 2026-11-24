@@ -22,6 +22,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mashiverse.mashit.ui.theme.ContentAccentColor
+import com.mashiverse.mashit.ui.theme.Primary
 import com.mashiverse.mashit.ui.theme.Secondary
 import com.mashiverse.mashit.ui.theme.SmallIconSize
 import kotlinx.coroutines.delay
@@ -70,7 +71,7 @@ fun ActionButton(
             containerColor = if (!isRed) {
                 Secondary
             } else {
-                MaterialTheme.colorScheme.error
+                Primary
             },
             contentColor = ContentAccentColor,
         ),

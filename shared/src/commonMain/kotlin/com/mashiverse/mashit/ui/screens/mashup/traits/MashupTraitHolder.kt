@@ -27,6 +27,7 @@ import com.mashiverse.mashit.ui.theme.ContentAccentColor
 import com.mashiverse.mashit.ui.theme.ContentColor
 import com.mashiverse.mashit.ui.theme.ExtraSmallPadding
 import com.mashiverse.mashit.ui.theme.Primary
+import com.mashiverse.mashit.ui.theme.Secondary
 import com.mashiverse.mashit.ui.theme.Surface
 import com.mashiverse.mashit.ui.theme.TraitShape
 
@@ -47,7 +48,7 @@ fun MashupTraitHolder(
                 .clip(TraitShape)
                 .background(Surface)
                 .border(
-                    width = 1.dp,
+                    width = 0.5.dp,
                     shape = TraitShape,
                     color = if (isSelected) Primary else ContentColor
                 )

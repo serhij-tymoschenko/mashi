@@ -12,9 +12,12 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.Slider
+import androidx.compose.material3.SliderColors
+import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -30,7 +33,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mashiverse.mashit.ui.screens.background.CollageBackground
+import com.mashiverse.mashit.ui.theme.ButtonBackground
 import com.mashiverse.mashit.ui.theme.ContentAccentColor
+import com.mashiverse.mashit.ui.theme.Primary
 import mashi.shared.generated.resources.Res
 import mashi.shared.generated.resources.collage1
 import mashi.shared.generated.resources.collage2
@@ -44,6 +49,8 @@ import mashi.shared.generated.resources.collage9
 import org.jetbrains.compose.resources.imageResource
 import org.koin.compose.viewmodel.koinViewModel
 import kotlin.math.roundToInt
+
+
 
 @Composable
 fun Settings() {
@@ -84,7 +91,8 @@ fun Settings() {
                 .drawWithContent(
                     onDraw = {
                         drawContent()
-                        drawRect(color = Color.Black.copy(alpha = 0.8f))
+                        drawRect(color = Primary.copy(alpha = 0.4f))
+                        drawRect(color = Color.Black.copy(alpha = 0.6F))
                     }
                 )
         )
@@ -95,33 +103,29 @@ fun Settings() {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-
-            Spacer(modifier = Modifier.weight(1.7F))
+            Spacer(modifier = Modifier.weight(2.5F))
 
             Row(
                 modifier = Modifier.fillMaxWidth(0.8F),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Checkbox(
-                    modifier = Modifier.size(24.dp),
+                RoundCheckbox(
                     checked = checked,
-                    colors = CheckboxDefaults.colors().copy(
-                        checkedBorderColor = Color.White,
-                        uncheckedBorderColor = Color.White,
-                        checkedCheckmarkColor = Color.White,
-                    ),
-                    onCheckedChange = { viewModel.updateDiscord(!checked) }
+                    onCheckedChange = { viewModel.updateDiscord(it) }
                 )
 
                 Spacer(modifier = Modifier.width(4.dp))
 
-                Text("Share on Discord", fontSize = 10.sp, color = ContentAccentColor)
+                Text("Share on Discord", fontSize = 12.sp, color = ContentAccentColor)
             }
-
 
             Spacer(modifier = Modifier.height(16.dp))
 
             Button(
+                colors = ButtonDefaults.buttonColors().copy(
+                    containerColor = Primary,
+                    contentColor = ContentAccentColor
+                ),
                 modifier = Modifier.fillMaxWidth(0.8F),
                 onClick = {
                     wallet?.let { w -> viewModel.deleteHistoryByWallet(w) }
@@ -130,19 +134,25 @@ fun Settings() {
                 Text("Clear history")
             }
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(12.dp))
 
             if (index != 0) {
                 Column(modifier = Modifier.fillMaxWidth(0.8F)) {
                     Text(
                         "Cache size: ${cacheValues[index]} + 32 MB",
-                        fontSize = 10.sp,
+                        fontSize = 12.sp,
                         color = ContentAccentColor
                     )
 
                     Spacer(modifier = Modifier.height(4.dp))
 
                     Slider(
+                        colors = SliderDefaults.colors().copy(
+                            thumbColor = ContentAccentColor,
+                            activeTrackColor = Primary,
+                            inactiveTrackColor = ButtonBackground,
+                            activeTickColor = ContentAccentColor,
+                        ),
                         modifier = Modifier.height(8.dp),
                         value = (index - 1).toFloat(),
                         onValueChange = {

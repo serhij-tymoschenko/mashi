@@ -18,6 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.mashiverse.mashit.ui.theme.Primary
 import mashi.shared.generated.resources.Res
 import mashi.shared.generated.resources.discord_icon
 import org.jetbrains.compose.resources.painterResource
@@ -34,7 +35,7 @@ fun DiscordAuthButton(
             containerColor = Color(31, 31, 31),
             contentColor = Color.White
         ),
-        border = BorderStroke(color = Color.DarkGray, width = 0.5.dp),
+        border = BorderStroke(color = Primary, width = 0.5.dp),
         onClick = onClick
     ) {
         Row(

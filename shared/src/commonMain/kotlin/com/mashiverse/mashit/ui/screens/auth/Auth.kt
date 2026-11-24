@@ -34,6 +34,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mashiverse.mashit.ui.screens.background.CollageBackground
+import com.mashiverse.mashit.ui.theme.ContentAccentColor
+import com.mashiverse.mashit.ui.theme.Primary
 import com.mashiverse.mashit.utils.config.RemoteConfig
 import com.mashiverse.mashit.utils.helpers.rememberDiscordInviteOpener
 import mashi.shared.generated.resources.Res
@@ -87,7 +89,8 @@ fun Auth(onIsApprovalTeamChange: () -> Unit) {
                 .drawWithContent(
                     onDraw = {
                         drawContent()
-                        drawRect(color = Color.Black.copy(alpha = 0.8f))
+                        drawRect(color = Primary.copy(alpha = 0.4f))
+                        drawRect(color = Color.Black.copy(alpha = 0.6F))
                     }
                 )
         )
@@ -98,30 +101,7 @@ fun Auth(onIsApprovalTeamChange: () -> Unit) {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(0.8F),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Spacer(modifier = Modifier.weight(1F))
-
-                Text(
-                    modifier = Modifier.padding(top = 24.dp),
-                    text = "Tiny world in your paws",
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = Color.White
-                )
-
-                Image(
-                    modifier = Modifier.height(72.dp)
-                        .offset(y = (-2).dp),
-                    painter = painterResource(Res.drawable.katze),
-                    contentDescription = null
-                )
-
-                Spacer(modifier = Modifier.weight(1F))
-            }
-
+            Spacer(modifier = Modifier.height(128.dp))
 
             DiscordAuthButton(
                 modifier = Modifier.fillMaxWidth(0.8F),

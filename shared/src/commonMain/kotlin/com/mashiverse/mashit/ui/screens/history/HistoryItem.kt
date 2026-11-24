@@ -1,6 +1,7 @@
 package com.mashiverse.mashit.ui.screens.history
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -16,6 +17,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.unit.dp
 import coil3.ImageLoader
 import coil3.compose.AsyncImagePainter
 import coil3.compose.LocalPlatformContext
@@ -24,6 +26,8 @@ import coil3.compose.SubcomposeAsyncImageContent
 import coil3.request.ImageRequest
 import coil3.request.crossfade
 import coil3.util.DebugLogger
+import com.mashiverse.mashit.ui.theme.ContentColor
+import com.mashiverse.mashit.ui.theme.Primary
 import com.mashiverse.mashit.ui.theme.SmallPadding
 import com.mashiverse.mashit.ui.theme.Surface
 import com.mashiverse.mashit.ui.theme.TraitShape
@@ -65,7 +69,12 @@ fun HistoryItem(
                     .background(Surface),
             ) {
                 SubcomposeAsyncImage(
-                    modifier = Modifier.height(XLHolderHeight),
+                    modifier = Modifier.height(XLHolderHeight)
+                        .border(
+                            width = 0.5.dp,
+                            shape = TraitShape,
+                            color = ContentColor
+                        ),
                     model = request,
                     imageLoader = staticLoader,
                     contentDescription = null,
@@ -82,7 +91,7 @@ fun HistoryItem(
                                     .width(XLHolderWidth),
                                 contentAlignment = Alignment.Center
                             ) {
-                                LoadingIndicator()
+                                LoadingIndicator(color = Primary)
                             }
                         }
 

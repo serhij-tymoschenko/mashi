@@ -1,5 +1,6 @@
 package com.mashiverse.mashit.ui.screens.settings
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -14,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.mashiverse.mashit.ui.theme.Primary
 import mashi.shared.generated.resources.Res
 import mashi.shared.generated.resources.discord_icon
 import org.jetbrains.compose.resources.painterResource
@@ -26,6 +28,7 @@ fun DisconnectButton(
     OutlinedButton(
         modifier = modifier.height(56.dp),
         shape = RoundedCornerShape(27),
+        border = BorderStroke(color = Primary, width = 0.5.dp),
         onClick = onClick
     ) {
         Row(

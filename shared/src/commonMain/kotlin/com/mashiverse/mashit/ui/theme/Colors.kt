@@ -2,17 +2,18 @@ package com.mashiverse.mashit.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-// Primary
-val Primary = Color(220, 4, 4, 255)
+// Accent
+val Primary = Color(0xFF0F572E)
 
-val Background = Color(16, 16, 16)
-val Secondary = Color(45, 45, 45)
-val Surface = Color(29, 29, 29)
+// Backgrounds
+val Background = Color(0xFF121513)
+val Surface = Color(0xFF1B201C)
+val Secondary = Color(0xFF29302B)
 
+// Buttons
+val ButtonBackground = Color(0xFF3E4A41)
+val ActiveButtonBackground = Color(0xFF566659)
 
-val ButtonBackground = Color(86, 86, 86)
-val ActiveButtonBackground = Color(114, 114, 114)
-
-
-val ContentColor = Color(197, 197, 197)
-val ContentAccentColor = Color.White
+// Content
+val ContentColor = Color(0xFFC6D0C8)
+val ContentAccentColor = Color(0xFFF1F6F2)

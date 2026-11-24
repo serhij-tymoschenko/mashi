@@ -39,6 +39,7 @@ import com.mashiverse.mashit.data.states.mashup.MashupIntent
 import com.mashiverse.mashit.ui.theme.ContentAccentColor
 import com.mashiverse.mashit.ui.theme.MediumPadding
 import com.mashiverse.mashit.ui.theme.Padding
+import com.mashiverse.mashit.ui.theme.Primary
 import com.mashiverse.mashit.ui.theme.Secondary
 import com.mashiverse.mashit.ui.theme.SmallPadding
 import com.mashiverse.mashit.ui.traits.TraitHolder
@@ -166,7 +167,7 @@ fun CollectiblePreview(
                                 .background(Secondary.copy(alpha = 0.3f)),
                             contentAlignment = Alignment.Center
                         ) {
-                            LoadingIndicator()
+                            LoadingIndicator(color = Primary)
                         }
                     }
                 } else {

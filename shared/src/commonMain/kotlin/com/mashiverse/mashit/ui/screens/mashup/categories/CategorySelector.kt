@@ -22,6 +22,7 @@ import com.mashiverse.mashit.ui.theme.ButtonBackground
 import com.mashiverse.mashit.ui.theme.ContentAccentColor
 import com.mashiverse.mashit.ui.theme.ContentColor
 import com.mashiverse.mashit.ui.theme.Padding
+import com.mashiverse.mashit.ui.theme.Primary
 import com.mashiverse.mashit.ui.theme.SmallPadding
 import kotlinx.coroutines.CoroutineScope
 
@@ -43,9 +44,9 @@ fun CategorySelector(
                 onClick = { processMashupIntent(MashupIntent.OnCollectiblesSelect) },
                 colors = ButtonDefaults.buttonColors().copy(
                     containerColor = if (mashupUiState.isCollectibles) {
-                        ActiveButtonBackground
+                        Primary
                     } else {
-                        ButtonBackground
+                        ActiveButtonBackground
                     },
                     contentColor = if (mashupUiState.isCollectibles) {
                         ContentAccentColor
@@ -85,9 +86,9 @@ fun CategorySelector(
                 },
                 colors = ButtonDefaults.buttonColors().copy(
                     containerColor = if (selected) {
-                        ActiveButtonBackground
+                        Primary
                     } else {
-                        ButtonBackground
+                        ActiveButtonBackground
                     },
                     contentColor = if (selected) {
                         ContentAccentColor
