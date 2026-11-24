@@ -37,8 +37,9 @@ fun Main(isApprovalTeam: Boolean) {
                 navController.navigate(it) {
                     // Pop up to the start destination of the graph to
                     // avoid building up a massive back stack
-                    popUpTo(navController.graph.findStartDestination().id) {
+                    popUpTo(navController.graph.id) {
                         saveState = isApprovalTeam
+                        inclusive = true
                     }
                     // Avoid multiple copies of the same destination when
                     // reselecting the same bottom bar tab
