@@ -46,6 +46,22 @@ class DatastoreRepo(private val datastore: DataStore<Preferences>) {
                 preferences[PreferencesKeys.DISCORD] ?: false
             }
 
+    val lightThemeFlow: Flow<Boolean> =
+        datastore.data
+            .catch { e ->
+                if (e is IOException) {
+                    emit(emptyPreferences())
+                } else {
+                }
+            }
+            .map { preferences ->
+                preferences[PreferencesKeys.LIGHT_THEME] ?: false
+            }
+
+    suspend fun updateLightTheme(isLight: Boolean) {
+        datastore.edit { preferences -> preferences[PreferencesKeys.LIGHT_THEME] }
+    }
+
     suspend fun updateWallet(wallet: String) {
         datastore.edit { preferences -> preferences[PreferencesKeys.WALLET] = wallet }
     }

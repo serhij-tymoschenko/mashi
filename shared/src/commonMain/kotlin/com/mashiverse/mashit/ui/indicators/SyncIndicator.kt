@@ -8,10 +8,13 @@ import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Icon
+import androidx.compose.material3.SegmentedButtonDefaults.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.unit.dp
+import com.mashiverse.mashit.ui.theme.Primary
 import mashi.shared.generated.resources.Res
 import mashi.shared.generated.resources.sync
 import org.jetbrains.compose.resources.painterResource
@@ -29,9 +32,10 @@ fun SyncIndicator(modifier: Modifier = Modifier) {
         )
     )
 
-    Image(
+    Icon(
         modifier = modifier.alpha(visibilityProgress.value),
         painter = painterResource(Res.drawable.sync),
-        contentDescription = null
+        contentDescription = null,
+        tint = Primary
     )
 }
