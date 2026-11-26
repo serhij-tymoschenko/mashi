@@ -19,6 +19,7 @@ import androidx.navigation.compose.rememberNavController
 import com.mashiverse.mashit.app.nav.MainRoutes
 import com.mashiverse.mashit.app.nav.mainGraph
 import com.mashiverse.mashit.ui.nav.BottomNav
+import com.mashiverse.mashit.ui.screens.profile.Profile
 import com.mashiverse.mashit.ui.theme.Background
 
 @Composable

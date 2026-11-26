@@ -13,4 +13,7 @@ sealed class MainRoutes {
 
     @Serializable
     data object Settings : MainRoutes()
+
+    @Serializable
+    data object Profile: MainRoutes()
 }

@@ -4,6 +4,7 @@ import com.mashiverse.mashit.AppViewModel
 import com.mashiverse.mashit.ui.screens.auth.AuthViewModel
 import com.mashiverse.mashit.ui.screens.history.HistoryViewModel
 import com.mashiverse.mashit.ui.screens.mashup.MashupViewModel
+import com.mashiverse.mashit.ui.screens.profile.ProfileViewModel
 import com.mashiverse.mashit.ui.screens.settings.SettingsViewModel
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
@@ -18,4 +19,6 @@ val viewModelModule = module {
     viewModel<AppViewModel> { AppViewModel(get(), get()) }
 
     viewModel<HistoryViewModel> { HistoryViewModel(get(), get(), get(), get()) }
+
+    viewModel<ProfileViewModel> { ProfileViewModel (get(), get(), get(), get(), get()) }
 }

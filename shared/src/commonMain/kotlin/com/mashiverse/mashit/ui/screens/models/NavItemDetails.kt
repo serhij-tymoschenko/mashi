@@ -15,5 +15,6 @@ data class NavItemDetails(
 val navItems = listOf(
     NavItemDetails(MainRoutes.Mashup, Icons.Filled.Person),
     NavItemDetails(MainRoutes.History, Icons.Filled.History),
-    NavItemDetails(MainRoutes.Settings, Icons.Filled.Settings)
+    NavItemDetails(MainRoutes.Settings, Icons.Filled.Settings),
+    NavItemDetails(MainRoutes.Profile, Icons.Filled.Person)
 )
