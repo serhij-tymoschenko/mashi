@@ -51,14 +51,14 @@ fun Profile() {
                         processImageIntent = { i ->
                             viewModel.processImageIntent(i)
                         },
-                        holderWidth = 96.dp
+                        holderWidth = 84.dp
                     )
                 }
 
                 Spacer(modifier = Modifier.width(8.dp))
 
                 Column {
-                    Text("@xc.serhii", fontSize = 20.sp, color = ContentAccentColor)
+                    Text("@xc.serhii", fontSize = 24.sp, color = ContentAccentColor)
 
                     Text("Serhii Tymoshenko")
                 }
